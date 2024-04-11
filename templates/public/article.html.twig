@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}article{% endblock %}
+ 
+{% block stylesheets %}
+<style>
+div{
+    background-color:#CCC;
+    }
+h3{
+    color :darkblue;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div>
+    <h1>{{ article.title }}</h1>
+    <p>Date: {{ article.date|date("Y-m-d") }}</p>
+    <p>Description: {{ article.description }}</p>
+    <p>Author: {{ article.author }}</p>
+   
+       
+
+    <h1><a href="{{ path('app_accueil') }}">{{ "Accueil"}}</a></h1>
+
+</div>
+
+{% endblock %}
