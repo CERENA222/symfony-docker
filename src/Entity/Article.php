@@ -28,7 +28,7 @@ class Article
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $author = null;
 
-    #[ORM\OneToMany(targetEntity: Commentary::class, mappedBy: 'articleId', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: Commentary::class, mappedBy: 'article', orphanRemoval: true)]
     private Collection $commentaries;
 
     public function __construct()

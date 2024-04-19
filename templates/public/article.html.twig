@@ -19,6 +19,23 @@ h3{
     <p>Date: {{ article.date|date("Y-m-d") }}</p>
     <p>Description: {{ article.description }}</p>
     <p>Author: {{ article.author }}</p>
+
+    <h2>Commentaires</h2>
+   <ul>
+    {% for commentary in article.commentaries %}
+        <li>{{ commentary.content }}</li>
+    {% endfor %}
+    </ul>
+
+    {% if app.user %}
+            <h2>Ajouter un commentaire</h2>
+            {{ form_start(commentaryType) }}
+            {{ form_row(commentaryType.content) }}
+            <button type="submit">Ajouter le commentaire</button>
+            {{ form_end(commentaryType) }}
+        {% else %}
+            <p>Connectez-vous pour laisser un commentaire.</p>
+        {% endif %}
    
        
 
