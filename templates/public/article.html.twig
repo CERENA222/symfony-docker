@@ -3,14 +3,54 @@
 {% block title %}article{% endblock %}
  
 {% block stylesheets %}
-<style>
-div{
-    background-color:#CCC;
-    }
-h3{
-    color :darkblue;
-    }
-</style>
+    {{ parent() }}
+    <style>
+       
+        div {
+            background-color: #CCC;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        
+        h1, h2, h3 {
+            color: darkblue;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        form {
+            margin-top: 20px;
+        }
+        
+        input[type="text"], input[type="password"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
@@ -35,6 +75,8 @@ h3{
             {{ form_end(commentaryType) }}
         {% else %}
             <p>Connectez-vous pour laisser un commentaire.</p>
+            <p><a href="{{ path('app_login') }}">{{ "Connexion"}}</a></p>
+
         {% endif %}
    
        

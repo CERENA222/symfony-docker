@@ -11,19 +11,19 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class CreateAdminCommand extends Command
 {
     private EntityManagerInterface $entityManager;
-    private UserPasswordEncoderInterface $passwordEncoder;
+    private UserPasswordHasherInterface $userPasswordHasher;
 
-    public function __construct(EntityManagerInterface $entityManager, UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct(EntityManagerInterface $entityManager,UserPasswordHasherInterface $userPasswordHasher )
     {
         parent::__construct();
 
         $this->entityManager = $entityManager;
-        $this->passwordEncoder = $passwordEncoder;
+        $this->userPasswordHasher = $userPasswordHasher;
     }
 
     protected function configure(): void

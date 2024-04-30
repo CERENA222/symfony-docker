@@ -1,6 +1,55 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello LoginController!{% endblock %}
+{% block stylesheets %}
+<style>
+    .form-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    
+    .form-container label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    .form-container input[type="text"],
+    .form-container input[type="password"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    .form-container button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .form-container button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+   
+    .signup-link {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .signup-link a {
+        color: #007bff;
+    }
+</style>
+ {% endblock %}
 
 {% block body %}
     {% if error %}
@@ -18,4 +67,8 @@
 
         <button type="submit">login</button>
     </form>
+
+    <div class="signup-link">
+        <a href="{{ path('app_register') }}">Créer un compte</a>
+    </div>
 {% endblock %}
